@@ -1,0 +1,453 @@
+/* Обнуление */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    color: #f1f1f1;
+    font-family: Outfit;
+    font-weight: 600;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+$maxWidth: 1536;
+$maxWidthContainer: 1536;
+
+@mixin adaptivValue($property, $minSize, $startSize, $type) {
+    $addSize: $startSize - $minSize;
+    @if type==1 {
+        #{$property}: $startSize + px;
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+        }
+    }
+    @else if type==2 {
+        #{$property}: $startSize + px;
+        @media (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+        }
+    }
+    @else {
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+}
+
+
+/* ----- HEADER ---------*/
+.header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+.header__container {
+    width: 100%;
+    //padding: 30px;
+    @include adaptivValue("padding", 12, 30, 0);
+
+}
+
+.header__panel {
+    background-image: url(../assets/images/blur.png);
+    //padding: 13px;
+    @include adaptivValue("padding", 4, 10, 0);
+    @include adaptivValue("padding-left", 8, 20, 0);
+    @include adaptivValue("padding-right", 8, 20, 0);
+
+    border: 2px solid #65676972;
+    border-radius: 5px;
+    object-fit: cover;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+}
+
+.panel__search {
+
+}
+
+.panel__search img {
+    // width: 20px;
+    // height: 20px;
+    @include adaptivValue("width", 9.6, 24, 0);
+    @include adaptivValue("height", 9.6, 24, 0);
+
+
+}
+.panel__search img:not(:last-child) {
+  // margin-right: 20px;
+   @include adaptivValue("margin-right", 8, 20, 0);
+
+}
+
+.panel__nav {
+    display: flex;
+    @include adaptivValue("margin-left", 38,95, 0);
+}
+
+
+.panel__nav__item {
+    text-decoration: none;
+    font-weight: 600;
+    //font-size: 25px;
+    @include adaptivValue("font-size", 10, 25, 0);
+   // padding: 0 30px;
+   // @include adaptivValue("padding-right", 12, 30, 0);
+}
+
+.panel__nav :not(:last-child) {
+    @include adaptivValue("padding-right", 38, 95, 0);
+}
+
+.panel__nav__item a {
+    color: #f1f1f1;
+}
+
+.panel__contacts {
+    @include adaptivValue("margin-left", 80, 352, 0);
+
+}
+
+.panel__contacts a > img{
+    // width: 20px;
+    // height: 20px;
+    @include adaptivValue("width", 9.6, 24, 0);
+    @include adaptivValue("height", 9.6, 24, 0);
+}
+
+.panel__contacts a:not(:last-child) {
+    @include adaptivValue("margin-right", 4, 10, 0);
+}
+
+
+.panel__logo img {
+    // width: 80px;
+    // height: 40px;
+    @include adaptivValue("width", 43.2, 108, 0);
+    @include adaptivValue("height", 21.2, 53, 0);
+    @include adaptivValue("margin-left", 12.2, 33, 0);
+
+}
+
+
+
+/* ---- MAIN ----------------------------------*/
+.main-block {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.main-block__container {
+    //padding: 135.6px 0 0 0;
+    height: 100%;
+    width: 100%;
+    @include adaptivValue("padding-top", 54.24, 135.6, 0);
+    @include adaptivValue("padding-bottom", 20, 50, 0);
+}
+
+.main__inner {
+    height: 100%;
+    width: 100%;
+    //padding: 0 30px;
+    @include adaptivValue("padding-left", 12, 30, 0);
+    @include adaptivValue("padding-right", 12, 30, 0);
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.main__inner__info {
+    background-image: url(../assets/images/blur.png);
+    @include adaptivValue("width", 200, 500, 0);
+    border: 2px solid #65676972;
+    border-radius: 5px;
+    object-fit: cover;
+    backdrop-filter: blur(5px);
+}
+
+
+
+.info__item {
+    //padding: 18px 25px 18px 18px;
+    @include adaptivValue("padding", 7.2, 18, 0);
+    @include adaptivValue("padding-right", 10, 25, 0);
+
+    height: 100%;
+}
+
+
+
+.info__item__title {
+    //font-size: calc(20px + 35 * ((100vw - 320px) / (1536 - 320)));
+    @include adaptivValue("font-size", 24, 55, 0);
+    font-weight: 700;
+}
+.info__item__subtitle {
+    @include adaptivValue("font-size", 10, 25, 0);
+    //font-size: 25px;
+    font-weight: 700;
+    //margin-bottom: 40px;
+    @include adaptivValue("margin-bottom", 16, 40, 0);
+
+}
+
+.info__item__description {
+
+}
+
+.description__title {
+    //font-size: 20px;
+    @include adaptivValue("font-size", 8, 20, 0);
+    font-weight: 600;
+   // margin-bottom: 18px;
+    @include adaptivValue("margin-bottom", 7.2, 18, 0);
+
+}
+.description__text {
+    //font-size: 15px;
+    @include adaptivValue("font-size", 6, 15, 0);
+    font-weight: 200;
+    //margin-bottom: 40px;
+    @include adaptivValue("margin-bottom", 16, 40, 0);
+    @include adaptivValue("line-height", 8, 20, 0);
+
+
+}
+
+.info__item__buttons {
+    display: flex;
+    flex-direction: column;
+    //margin-bottom: 55px;
+    @include adaptivValue("margin-bottom", 22, 55, 0);
+
+}
+
+.info__item__buttons :not(:last-child) {
+    //margin-bottom: 20px;
+    @include adaptivValue("margin-bottom", 8, 20, 0);
+
+}
+
+.button {
+    width: 70%;
+    border: 1px solid #6e726d;
+    border-radius: 5px ;
+    text-decoration: none;
+    text-align: start;
+    //padding: 5px 15px;
+    @include adaptivValue("padding", 6, 15, 0);
+    @include adaptivValue("padding-top", 2, 5, 0);
+    @include adaptivValue("padding-bottom", 2, 5, 0);
+
+    color: #f1f1f1;
+   // font-size: 25px;
+    @include adaptivValue("font-size", 10, 25, 0);
+    font-weight: 700;
+}
+
+.info__item__moto {
+    //font-size: 22px;
+    @include adaptivValue("font-size", 8.8, 22, 0);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .main-block__container {
+        //padding: 135.6px 0 0 0;
+        @include adaptivValue("padding-top", 72, 180, 0);
+    }
+    .main__inner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+     
+    }
+    .main__inner__info {
+        width: 100%;
+    }
+
+}
+
+.main__inner__location {
+    background-image: url(../assets/images/blur.png);
+    @include adaptivValue("height", 88, 220, 0);
+    border: 2px solid #65676972;
+    border-radius: 5px;
+    object-fit: cover;
+    backdrop-filter: blur(5px);
+    align-self: flex-end;
+}
+
+.location__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    padding-top: 5px;
+    @include adaptivValue("padding-bottom", 15.2, 38, 0);
+    @include adaptivValue("padding-left", 10.8, 27, 0);
+    @include adaptivValue("padding-right", 10.8, 27, 0);
+
+}
+
+.location__text__name {
+    font-weight: 700;
+    @include adaptivValue("font-size", 11.6, 29, 0);
+}
+
+.coordinates__container {
+    @include adaptivValue("margin-top",8, 20, 0);
+    display: flex;
+    align-items: flex-end;
+    
+}
+
+.location__text__coordinates {
+    display: inline-block;
+    font-weight: 700;
+    @include adaptivValue("font-size", 7.2, 18, 0);
+}
+
+.location__text__icon {
+    @include adaptivValue("margin-left", 6, 15, 0);
+    @include adaptivValue("width", 7.6, 19, 0);
+    @include adaptivValue("height", 10.8, 27, 0);
+}
+
+._ibg {
+    position: relative;
+}
+
+._ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    object-fit: cover;
+}
+
+.main-block__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+
+
+@media (max-width: 768px) {
+    
+    .main__inner__location {
+        @include adaptivValue("margin-top", 12, 30, 0);
+        align-self: flex-start;
+    }
+
+    .location__container {
+        display: block;
+        padding:10px;
+    }
+    
+    .location__text__name {
+        display: block;
+       
+    }
+    
+    .coordinates__container {
+        margin-top: 0px;
+    }
+    
+    .location__text__coordinates {
+        display: inline;
+    }
+    
+
+}
