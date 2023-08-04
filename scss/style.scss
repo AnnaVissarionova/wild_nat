@@ -147,7 +147,8 @@ $maxWidthContainer: 1536;
 }
 
 .panel__search {
-
+    @include adaptivValue("margin-right", 38,95, 0);
+    display: flex;
 }
 
 .panel__search img {
@@ -164,9 +165,19 @@ $maxWidthContainer: 1536;
 
 }
 
+// .panel__burgerMenu {
+//     display: none;
+// }
+
+.panel__links__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .panel__nav {
     display: flex;
-    @include adaptivValue("margin-left", 38,95, 0);
+    //@include adaptivValue("margin-left", 38,95, 0);
 }
 
 
@@ -174,13 +185,15 @@ $maxWidthContainer: 1536;
     text-decoration: none;
     font-weight: 600;
     //font-size: 25px;
-    @include adaptivValue("font-size", 10, 25, 0);
+    @include adaptivValue("font-size", 10, 20, 0);
+    @include adaptivValue("padding-right", 38, 95, 0);
    // padding: 0 30px;
    // @include adaptivValue("padding-right", 12, 30, 0);
 }
 
-.panel__nav :not(:last-child) {
-    @include adaptivValue("padding-right", 38, 95, 0);
+
+.panel__nav:last-child {
+   padding-right: 0px;
 }
 
 .panel__nav__item a {
@@ -188,31 +201,128 @@ $maxWidthContainer: 1536;
 }
 
 .panel__contacts {
-    @include adaptivValue("margin-left", 80, 352, 0);
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
 
 }
 
 .panel__contacts a > img{
     // width: 20px;
     // height: 20px;
-    @include adaptivValue("width", 9.6, 24, 0);
-    @include adaptivValue("height", 9.6, 24, 0);
+    @include adaptivValue("width", 10, 20, 0);
+    @include adaptivValue("height", 10, 20, 0);
 }
 
 .panel__contacts a:not(:last-child) {
     @include adaptivValue("margin-right", 4, 10, 0);
 }
 
+.panel__mobile__navigation {
+    display: none;
+}
 
 .panel__logo img {
     // width: 80px;
     // height: 40px;
-    @include adaptivValue("width", 43.2, 108, 0);
-    @include adaptivValue("height", 21.2, 53, 0);
+    @include adaptivValue("width", 45, 90, 0);
+    @include adaptivValue("height", 22, 44, 0);
     @include adaptivValue("margin-left", 12.2, 33, 0);
 
 }
 
+@media (max-width: 767.98px) {
+    
+    .panel__links__container {
+       display: none;
+    }
+    
+
+    .panel__mobile__navigation {
+        display: flex;
+        width: 100%;
+    }
+
+    .mobile__navigation__container {
+        display: block;
+        position: relative;
+    }
+
+    .mobile__navigation__button {
+       
+        text-align: center;
+        font-size: 12px;
+      
+    }
+
+    .panel__nav_mobile {
+        display: none;
+        position: absolute;
+        background-color: #4f4c4cca;
+        z-index: 2;
+        width: 100%;
+    }
+
+    .panel__nav__item_mobile {
+       
+        padding: 4px;
+
+        & a {
+            font-size: 12px;
+            color: #f1f1f1;
+        }
+    }
+
+    .panel__mobile__navigation:hover {
+        color: rgb(159, 171, 69);
+        & .panel__nav_mobile {
+            display: block;
+        }
+    }
+
+    
+    
+
+    
+}
+
+// @media (max-width: 767.98px) {
+
+//     .panel__links__container {
+//         position: fixed;
+//         left: 0;
+//         top: 0;
+//         //width: 100%;
+//         //height: 100%;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+
+//     .panel__nav {
+//         flex-direction: column;
+//     }
+
+//     .panel__burgerMenu {
+//        position: relative;
+//        flex: 0 0 20px;
+//        height: 12px;
+//        display: flex;
+//        flex-direction: column;
+//        justify-content: space-between;
+//     }
+
+//     .panel__burgerMenu span {
+//         height: 2px;
+//         background-color: #f1f1f1;
+//     }
+    
+//     .panel__burgerMenu::before,
+//     .panel__burgerMenu::after {
+//         content: "";
+//         height: 2px;
+//         background-color: #f1f1f1;
+//     }
+// }
 
 
 /* ---- MAIN ----------------------------------*/
@@ -245,11 +355,13 @@ $maxWidthContainer: 1536;
 
 .main__inner__info {
     background-image: url(../assets/images/blur.png);
-    @include adaptivValue("width", 200, 500, 0);
+    //@include adaptivValue("width", 200, 500, 0);
+    width: 40%;
     border: 2px solid #65676972;
     border-radius: 5px;
     object-fit: cover;
     backdrop-filter: blur(5px);
+    
 }
 
 
@@ -259,6 +371,9 @@ $maxWidthContainer: 1536;
     @include adaptivValue("padding", 7.2, 18, 0);
     @include adaptivValue("padding-right", 10, 25, 0);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
 }
 
@@ -266,15 +381,15 @@ $maxWidthContainer: 1536;
 
 .info__item__title {
     //font-size: calc(20px + 35 * ((100vw - 320px) / (1536 - 320)));
-    @include adaptivValue("font-size", 24, 55, 0);
+    @include adaptivValue("font-size", 20, 40, 0);
     font-weight: 700;
 }
 .info__item__subtitle {
-    @include adaptivValue("font-size", 10, 25, 0);
+    @include adaptivValue("font-size", 10, 20, 0);
     //font-size: 25px;
     font-weight: 700;
     //margin-bottom: 40px;
-    @include adaptivValue("margin-bottom", 16, 40, 0);
+    @include adaptivValue("margin-bottom", 15, 30, 0);
 
 }
 
@@ -284,19 +399,19 @@ $maxWidthContainer: 1536;
 
 .description__title {
     //font-size: 20px;
-    @include adaptivValue("font-size", 8, 20, 0);
+    @include adaptivValue("font-size", 9, 18, 0);
     font-weight: 600;
    // margin-bottom: 18px;
-    @include adaptivValue("margin-bottom", 7.2, 18, 0);
+    @include adaptivValue("margin-bottom", 8, 16, 0);
 
 }
 .description__text {
     //font-size: 15px;
-    @include adaptivValue("font-size", 6, 15, 0);
+    @include adaptivValue("font-size", 10, 14, 0);
     font-weight: 200;
     //margin-bottom: 40px;
-    @include adaptivValue("margin-bottom", 16, 40, 0);
-    @include adaptivValue("line-height", 8, 20, 0);
+    @include adaptivValue("margin-bottom", 15, 30, 0);
+    @include adaptivValue("line-height", 10, 18, 0);
 
 
 }
@@ -305,13 +420,13 @@ $maxWidthContainer: 1536;
     display: flex;
     flex-direction: column;
     //margin-bottom: 55px;
-    @include adaptivValue("margin-bottom", 22, 55, 0);
+    @include adaptivValue("margin-bottom", 20, 40, 0);
 
 }
 
 .info__item__buttons :not(:last-child) {
     //margin-bottom: 20px;
-    @include adaptivValue("margin-bottom", 8, 20, 0);
+    @include adaptivValue("margin-bottom", 8, 15, 0);
 
 }
 
@@ -322,26 +437,26 @@ $maxWidthContainer: 1536;
     text-decoration: none;
     text-align: start;
     //padding: 5px 15px;
-    @include adaptivValue("padding", 6, 15, 0);
-    @include adaptivValue("padding-top", 2, 5, 0);
-    @include adaptivValue("padding-bottom", 2, 5, 0);
+    @include adaptivValue("padding", 10, 15, 0);
+    @include adaptivValue("padding-top", 3, 5, 0);
+    @include adaptivValue("padding-bottom", 3, 5, 0);
 
     color: #f1f1f1;
    // font-size: 25px;
-    @include adaptivValue("font-size", 10, 25, 0);
+    @include adaptivValue("font-size", 10, 20, 0);
     font-weight: 700;
 }
 
 .info__item__moto {
     //font-size: 22px;
-    @include adaptivValue("font-size", 8.8, 22, 0);
+    @include adaptivValue("font-size", 14, 22, 0);
     font-weight: 400;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
     .main-block__container {
         //padding: 135.6px 0 0 0;
-        @include adaptivValue("padding-top", 72, 180, 0);
+        @include adaptivValue("padding-top", 120, 180, 0);
     }
     .main__inner {
         flex-direction: column;
@@ -357,7 +472,7 @@ $maxWidthContainer: 1536;
 
 .main__inner__location {
     background-image: url(../assets/images/blur.png);
-    @include adaptivValue("height", 88, 220, 0);
+   
     border: 2px solid #65676972;
     border-radius: 5px;
     object-fit: cover;
@@ -366,11 +481,12 @@ $maxWidthContainer: 1536;
 }
 
 .location__container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-end;
-    padding-top: 5px;
+    //height: 100%;
+    @include adaptivValue("padding-top", 50, 100, 0);
+   // display: flex;
+    //flex-direction: column;
+    //justify-content:flex-end;
+    //padding-top: 5px;
     @include adaptivValue("padding-bottom", 15.2, 38, 0);
     @include adaptivValue("padding-left", 10.8, 27, 0);
     @include adaptivValue("padding-right", 10.8, 27, 0);
@@ -379,7 +495,7 @@ $maxWidthContainer: 1536;
 
 .location__text__name {
     font-weight: 700;
-    @include adaptivValue("font-size", 11.6, 29, 0);
+    @include adaptivValue("font-size", 12, 24, 0);
 }
 
 .coordinates__container {
@@ -392,7 +508,7 @@ $maxWidthContainer: 1536;
 .location__text__coordinates {
     display: inline-block;
     font-weight: 700;
-    @include adaptivValue("font-size", 7.2, 18, 0);
+    @include adaptivValue("font-size", 7, 14, 0);
 }
 
 .location__text__icon {
@@ -424,11 +540,12 @@ $maxWidthContainer: 1536;
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
     
     .main__inner__location {
         @include adaptivValue("margin-top", 12, 30, 0);
         align-self: flex-start;
+        
     }
 
     .location__container {

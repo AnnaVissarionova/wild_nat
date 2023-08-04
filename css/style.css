@@ -124,6 +124,13 @@ h6 {
           align-items: center;
 }
 
+.panel__search {
+  margin-right: calc(38px + 57 * ((100vw - 320px) / (1216)));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .panel__search img {
   width: calc(9.6px + 14.4 * ((100vw - 320px) / (1216)));
   height: calc(9.6px + 14.4 * ((100vw - 320px) / (1216)));
@@ -133,21 +140,31 @@ h6 {
   margin-right: calc(8px + 12 * ((100vw - 320px) / (1216)));
 }
 
+.panel__links__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
 .panel__nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: calc(38px + 57 * ((100vw - 320px) / (1216)));
 }
 
 .panel__nav__item {
   text-decoration: none;
   font-weight: 600;
-  font-size: calc(10px + 15 * ((100vw - 320px) / (1216)));
+  font-size: calc(10px + 10 * ((100vw - 320px) / (1216)));
+  padding-right: calc(38px + 57 * ((100vw - 320px) / (1216)));
 }
 
-.panel__nav :not(:last-child) {
-  padding-right: calc(38px + 57 * ((100vw - 320px) / (1216)));
+.panel__nav:last-child {
+  padding-right: 0px;
 }
 
 .panel__nav__item a {
@@ -155,24 +172,75 @@ h6 {
 }
 
 .panel__contacts {
-  margin-left: calc(80px + 272 * ((100vw - 320px) / (1216)));
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .panel__contacts a > img {
-  width: calc(9.6px + 14.4 * ((100vw - 320px) / (1216)));
-  height: calc(9.6px + 14.4 * ((100vw - 320px) / (1216)));
+  width: calc(10px + 10 * ((100vw - 320px) / (1216)));
+  height: calc(10px + 10 * ((100vw - 320px) / (1216)));
 }
 
 .panel__contacts a:not(:last-child) {
   margin-right: calc(4px + 6 * ((100vw - 320px) / (1216)));
 }
 
+.panel__mobile__navigation {
+  display: none;
+}
+
 .panel__logo img {
-  width: calc(43.2px + 64.8 * ((100vw - 320px) / (1216)));
-  height: calc(21.2px + 31.8 * ((100vw - 320px) / (1216)));
+  width: calc(45px + 45 * ((100vw - 320px) / (1216)));
+  height: calc(22px + 22 * ((100vw - 320px) / (1216)));
   margin-left: calc(12.2px + 20.8 * ((100vw - 320px) / (1216)));
 }
 
+@media (max-width: 767.98px) {
+  .panel__links__container {
+    display: none;
+  }
+  .panel__mobile__navigation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  .mobile__navigation__container {
+    display: block;
+    position: relative;
+  }
+  .mobile__navigation__button {
+    text-align: center;
+    font-size: 12px;
+  }
+  .panel__nav_mobile {
+    display: none;
+    position: absolute;
+    background-color: rgba(79, 76, 76, 0.7921568627);
+    z-index: 2;
+    width: 100%;
+  }
+  .panel__nav__item_mobile {
+    padding: 4px;
+  }
+  .panel__nav__item_mobile a {
+    font-size: 12px;
+    color: #f1f1f1;
+  }
+  .panel__mobile__navigation:hover {
+    color: rgb(159, 171, 69);
+  }
+  .panel__mobile__navigation:hover .panel__nav_mobile {
+    display: block;
+  }
+}
 /* ---- MAIN ----------------------------------*/
 .main-block {
   width: 100vw;
@@ -204,7 +272,7 @@ h6 {
 
 .main__inner__info {
   background-image: url(../assets/images/blur.png);
-  width: calc(200px + 300 * ((100vw - 320px) / (1216)));
+  width: 40%;
   border: 2px solid rgba(101, 103, 105, 0.4470588235);
   border-radius: 5px;
   -o-object-fit: cover;
@@ -216,31 +284,41 @@ h6 {
 .info__item {
   padding: calc(7.2px + 10.8 * ((100vw - 320px) / (1216)));
   padding-right: calc(10px + 15 * ((100vw - 320px) / (1216)));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100%;
 }
 
 .info__item__title {
-  font-size: calc(24px + 31 * ((100vw - 320px) / (1216)));
+  font-size: calc(20px + 20 * ((100vw - 320px) / (1216)));
   font-weight: 700;
 }
 
 .info__item__subtitle {
-  font-size: calc(10px + 15 * ((100vw - 320px) / (1216)));
+  font-size: calc(10px + 10 * ((100vw - 320px) / (1216)));
   font-weight: 700;
-  margin-bottom: calc(16px + 24 * ((100vw - 320px) / (1216)));
+  margin-bottom: calc(15px + 15 * ((100vw - 320px) / (1216)));
 }
 
 .description__title {
-  font-size: calc(8px + 12 * ((100vw - 320px) / (1216)));
+  font-size: calc(9px + 9 * ((100vw - 320px) / (1216)));
   font-weight: 600;
-  margin-bottom: calc(7.2px + 10.8 * ((100vw - 320px) / (1216)));
+  margin-bottom: calc(8px + 8 * ((100vw - 320px) / (1216)));
 }
 
 .description__text {
-  font-size: calc(6px + 9 * ((100vw - 320px) / (1216)));
+  font-size: calc(10px + 4 * ((100vw - 320px) / (1216)));
   font-weight: 200;
-  margin-bottom: calc(16px + 24 * ((100vw - 320px) / (1216)));
-  line-height: calc(8px + 12 * ((100vw - 320px) / (1216)));
+  margin-bottom: calc(15px + 15 * ((100vw - 320px) / (1216)));
+  line-height: calc(10px + 8 * ((100vw - 320px) / (1216)));
 }
 
 .info__item__buttons {
@@ -251,11 +329,11 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: calc(22px + 33 * ((100vw - 320px) / (1216)));
+  margin-bottom: calc(20px + 20 * ((100vw - 320px) / (1216)));
 }
 
 .info__item__buttons :not(:last-child) {
-  margin-bottom: calc(8px + 12 * ((100vw - 320px) / (1216)));
+  margin-bottom: calc(8px + 7 * ((100vw - 320px) / (1216)));
 }
 
 .button {
@@ -264,22 +342,22 @@ h6 {
   border-radius: 5px;
   text-decoration: none;
   text-align: start;
-  padding: calc(6px + 9 * ((100vw - 320px) / (1216)));
-  padding-top: calc(2px + 3 * ((100vw - 320px) / (1216)));
-  padding-bottom: calc(2px + 3 * ((100vw - 320px) / (1216)));
+  padding: calc(10px + 5 * ((100vw - 320px) / (1216)));
+  padding-top: calc(3px + 2 * ((100vw - 320px) / (1216)));
+  padding-bottom: calc(3px + 2 * ((100vw - 320px) / (1216)));
   color: #f1f1f1;
-  font-size: calc(10px + 15 * ((100vw - 320px) / (1216)));
+  font-size: calc(10px + 10 * ((100vw - 320px) / (1216)));
   font-weight: 700;
 }
 
 .info__item__moto {
-  font-size: calc(8.8px + 13.2 * ((100vw - 320px) / (1216)));
+  font-size: calc(14px + 8 * ((100vw - 320px) / (1216)));
   font-weight: 400;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .main-block__container {
-    padding-top: calc(72px + 108 * ((100vw - 320px) / (1216)));
+    padding-top: calc(120px + 60 * ((100vw - 320px) / (1216)));
   }
   .main__inner {
     -webkit-box-orient: vertical;
@@ -299,7 +377,6 @@ h6 {
 }
 .main__inner__location {
   background-image: url(../assets/images/blur.png);
-  height: calc(88px + 132 * ((100vw - 320px) / (1216)));
   border: 2px solid rgba(101, 103, 105, 0.4470588235);
   border-radius: 5px;
   -o-object-fit: cover;
@@ -311,18 +388,7 @@ h6 {
 }
 
 .location__container {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding-top: 5px;
+  padding-top: calc(50px + 50 * ((100vw - 320px) / (1216)));
   padding-bottom: calc(15.2px + 22.8 * ((100vw - 320px) / (1216)));
   padding-left: calc(10.8px + 16.2 * ((100vw - 320px) / (1216)));
   padding-right: calc(10.8px + 16.2 * ((100vw - 320px) / (1216)));
@@ -330,7 +396,7 @@ h6 {
 
 .location__text__name {
   font-weight: 700;
-  font-size: calc(11.6px + 17.4 * ((100vw - 320px) / (1216)));
+  font-size: calc(12px + 12 * ((100vw - 320px) / (1216)));
 }
 
 .coordinates__container {
@@ -346,7 +412,7 @@ h6 {
 .location__text__coordinates {
   display: inline-block;
   font-weight: 700;
-  font-size: calc(7.2px + 10.8 * ((100vw - 320px) / (1216)));
+  font-size: calc(7px + 7 * ((100vw - 320px) / (1216)));
 }
 
 .location__text__icon {
@@ -377,7 +443,7 @@ h6 {
   left: 0%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .main__inner__location {
     margin-top: calc(12px + 18 * ((100vw - 320px) / (1216)));
     -ms-flex-item-align: start;
